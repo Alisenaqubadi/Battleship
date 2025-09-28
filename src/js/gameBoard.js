@@ -10,6 +10,7 @@ class gameBoard {
 
   placeShip(ship, coordinates, orientation) {
     const boardSize = 10; 
+    const [ x , y ] = coordinates;
 
     if (orientation === 'x' && x + ship.length > boardSize){
     throw new Error("Ship goes out of bounds horizontally");}
@@ -17,10 +18,12 @@ class gameBoard {
     throw new Error("Ship goes out of bounds vertically");}
 
     for(let i = 0; i < ship.length; i++){
-        let x = coordinates[0] + ( orientation == "y" ? i : 0 )
-        let y = coordinates[1] + ( orientation == "x" ? i : 0 )
+        let x = coordinates[0] + ( orientation == "x" ? i : 0 )
+        let y = coordinates[1] + ( orientation == "y" ? i : 0 )
         this.board[x][y] = ship;
     }
+
+    this.ships.push(ship)
 
   }
 
