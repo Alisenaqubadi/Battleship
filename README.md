@@ -1,1 +1,1 @@
-# web-pack-template
+# BattleShip
